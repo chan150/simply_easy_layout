@@ -26,4 +26,8 @@ class SimplyEasyLayout {
     final double adjustedHeight = min(screenHeight, screenWidth * ratio);
     return adjustedHeight * value / layoutHeight;
   }
+
+  double atLeast(double value) {
+    return max(relative(value), value);
+  }
 }
