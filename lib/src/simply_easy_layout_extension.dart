@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:simply_easy_layout/simply_easy_layout.dart';
 
-/// extension of flutter to help us make easy layout object
-extension SimplyEasyLayoutExtension on BuildContext {
+/// Extension to help us make an easy layout object
+extension EasyLayoutExtension on BuildContext {
   /// [layout] makes an object for the easy layout.
   /// [SimplyEasyLayout] contains layoutWidth, layoutHeight, screenWidth,
   /// and screenHeight.
@@ -19,4 +19,13 @@ extension SimplyEasyLayoutExtension on BuildContext {
       screenHeight: MediaQuery.of(this).size.height,
     );
   }
+}
+
+/// Extension to help us make sized box.
+extension EasyLayoutNumtoSizedBox on num {
+  /// [w] returns a sized box having a width of a given number.
+  SizedBox get w => SizedBox(width: toDouble());
+
+  /// [h] returns a sized box having a height of a given number.
+  SizedBox get h => SizedBox(height: toDouble());
 }
