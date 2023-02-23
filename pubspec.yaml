@@ -1,6 +1,6 @@
 name: simply_easy_layout
 description: Yet another Easy Layout package which helps you get a relative width and height from fixed_layout.
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/chan150/simply_easy_layout
 
 environment:
@@ -12,8 +12,8 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
-  mocktail: ^0.3.0
-  very_good_analysis: ^4.0.0+1
-
   flutter_test:
     sdk: flutter
+
+  mocktail: ^0.3.0
+  very_good_analysis: ^4.0.0+1
