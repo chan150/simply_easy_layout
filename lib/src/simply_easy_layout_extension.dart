@@ -19,6 +19,12 @@ extension EasyLayoutExtension on BuildContext {
       screenHeight: MediaQuery.of(this).size.height,
     );
   }
+
+  /// [config] is an initialization method,
+  /// which registers an easy layout instance to factory.
+  void get config {
+    SimplyEasyLayoutFactory().easyLayout = layout;
+  }
 }
 
 /// Extension for numb type
