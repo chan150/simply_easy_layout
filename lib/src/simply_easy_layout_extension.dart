@@ -48,17 +48,11 @@ extension EasyLayoutSizeExtension on Size {
   /// [box] return a sized box having size itself.
   SizedBox get box => SizedBox(width: width, height: height);
 
-  /// [atLeast] return a relative-sized box having at least given size.
-  SizedBox get atLeast => SizedBox(
-        width: width.atLeast,
-        height: height.atLeast,
-      );
+  /// [atLeast] return a relative size.
+  Size get atLeast => Size(width.atLeast, height.atLeast);
 
-  /// [relative] return a relative-sized box.
-  SizedBox get relative => SizedBox(
-        width: width.relative,
-        height: height.relative,
-      );
+  /// [relative] return a relative size.
+  Size get relative => Size(width.relative, height.relative);
 
   /// [cover] return a container having size itself.
   /// It can take declarative arguments, such as child and box decoration.
