@@ -21,11 +21,50 @@ extension EasyLayoutExtension on BuildContext {
   }
 }
 
-/// Extension to help us make sized box.
-extension EasyLayoutNumtoSizedBox on num {
+/// Extension for numb type
+extension EasyLayoutNumberExtension on num {
   /// [w] returns a sized box having a width of a given number.
   SizedBox get w => SizedBox(width: toDouble());
 
   /// [h] returns a sized box having a height of a given number.
   SizedBox get h => SizedBox(height: toDouble());
+
+  /// [atLeast] returns a relative double
+  /// which is fitted in layout at least a given value.
+  double get atLeast {
+    if (SimplyEasyLayoutFactory().easyLayout == null) return toDouble();
+    return SimplyEasyLayoutFactory().easyLayout!.atLeast(toDouble());
+  }
+
+  /// [relative] returns a relative double which is fitted in layout.
+  double get relative {
+    if (SimplyEasyLayoutFactory().easyLayout == null) return toDouble();
+    return SimplyEasyLayoutFactory().easyLayout!.relative(toDouble());
+  }
+}
+
+/// Extension for Size type
+extension EasyLayoutSizeExtension on Size {
+  /// [box] return a sized box having size itself.
+  SizedBox get box => SizedBox(width: width, height: height);
+
+  /// [atLeast] return a relative size.
+  Size get atLeast => Size(width.atLeast, height.atLeast);
+
+  /// [relative] return a relative size.
+  Size get relative => Size(width.relative, height.relative);
+
+  /// [cover] return a container having size itself.
+  /// It can take declarative arguments, such as child and box decoration.
+  Container cover({
+    Widget? child,
+    BoxDecoration? decoration,
+  }) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: decoration,
+      child: child,
+    );
+  }
 }
