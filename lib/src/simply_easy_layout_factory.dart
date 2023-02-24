@@ -1,8 +1,10 @@
 // ignore_for_file: lines_longer_than_80_chars
 
-/// get and set configuration
+import 'package:simply_easy_layout/simply_easy_layout.dart';
+
+/// get/set configuration as a factory
 class SimplyEasyLayoutFactory {
-  /// singleton object for the easy layout
+  /// singleton instance for the easy layout
   factory SimplyEasyLayoutFactory() => _instance;
 
   SimplyEasyLayoutFactory._internal();
@@ -14,4 +16,7 @@ class SimplyEasyLayoutFactory {
 
   /// layout height
   double height = 400;
+
+  /// easyLayout instance
+  SimplyEasyLayout? easyLayout;
 }
