@@ -27,10 +27,10 @@ extension EasyLayoutExtension on BuildContext {
 /// Extension for numb type
 extension EasyLayoutNumberExtension on num {
   /// [w] returns a sized box having a width of a given number.
-  SizedBox get w => SizedBox(width: toDouble());
+  Widget get w => SizedBox(width: toDouble());
 
   /// [h] returns a sized box having a height of a given number.
-  SizedBox get h => SizedBox(height: toDouble());
+  Widget get h => SizedBox(height: toDouble());
 
   /// [atLeast] returns a relative double
   /// which is fitted in layout at least a given value.
@@ -49,7 +49,7 @@ extension EasyLayoutNumberExtension on num {
 /// Extension for Size type
 extension EasyLayoutSizeExtension on Size {
   /// [box] return a sized box having size itself.
-  SizedBox get box => SizedBox(width: width, height: height);
+  Widget get box => SizedBox(width: width, height: height);
 
   /// [atLeast] return a relative size.
   Size get atLeast => Size(width.atLeast, height.atLeast);
@@ -59,13 +59,20 @@ extension EasyLayoutSizeExtension on Size {
 
   /// [cover] return a container having size itself.
   /// It can take declarative arguments, such as child and box decoration.
-  Container cover({
+  Widget cover({
     Widget? child,
     BoxDecoration? decoration,
   }) {
+    if (decoration == null) {
+      return SizedBox(
+        width: width == 0 ? null : width,
+        height: height == 0 ? null : height,
+        child: child,
+      );
+    }
     return Container(
-      width: width,
-      height: height,
+      width: width == 0 ? null : width,
+      height: height == 0 ? null : height,
       decoration: decoration,
       child: child,
     );
