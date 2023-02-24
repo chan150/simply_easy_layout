@@ -12,18 +12,15 @@ extension EasyLayoutExtension on BuildContext {
   ///
   /// Both screenWidth and screenHeight is obtained from BuildContext.
   SimplyEasyLayout get layout {
-    return SimplyEasyLayout(
+    final easyLayout = SimplyEasyLayout(
       layoutWidth: SimplyEasyLayoutFactory().width,
       layoutHeight: SimplyEasyLayoutFactory().height,
       screenWidth: MediaQuery.of(this).size.width,
       screenHeight: MediaQuery.of(this).size.height,
     );
-  }
 
-  /// [config] is an initialization method,
-  /// which registers an easy layout instance to factory.
-  void get config {
-    SimplyEasyLayoutFactory().easyLayout = layout;
+    SimplyEasyLayoutFactory().easyLayout = easyLayout;
+    return easyLayout;
   }
 }
 
