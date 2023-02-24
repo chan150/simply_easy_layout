@@ -1,6 +1,6 @@
 name: simply_easy_layout
 description: Yet another Easy Layout package which helps you get a relative width and height from fixed_layout.
-version: 0.1.4
+version: 0.1.5
 homepage: https://github.com/chan150/simply_easy_layout
 
 environment:
