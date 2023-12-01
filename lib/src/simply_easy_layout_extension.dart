@@ -15,8 +15,8 @@ extension EasyLayoutExtension on BuildContext {
     final easyLayout = SimplyEasyLayout(
       layoutWidth: SimplyEasyLayoutFactory().width,
       layoutHeight: SimplyEasyLayoutFactory().height,
-      screenWidth: MediaQuery.of(this).size.width,
-      screenHeight: MediaQuery.of(this).size.height,
+      screenWidth: w,
+      screenHeight: h,
     );
 
     SimplyEasyLayoutFactory().easyLayout = easyLayout;
