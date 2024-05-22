@@ -46,10 +46,10 @@ extension EasyLayoutNumberExtension on num {
   }
 }
 
-extension EasyLayoutTupleExtension on (double, double) {
-  double get width => this.$1;
+extension EasyLayoutTupleExtension on (num, num) {
+  double get width => this.$1 as double;
 
-  double get height => this.$2;
+  double get height => this.$2 as double;
 
   /// [box] return a sized box having size itself.
   Widget get box => SizedBox(width: width, height: height);
