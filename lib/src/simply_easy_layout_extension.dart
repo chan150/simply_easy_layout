@@ -46,6 +46,37 @@ extension EasyLayoutNumberExtension on num {
   }
 }
 
+extension EasyLayoutTupleExtension on (double, double) {
+  double get width => this.$1;
+
+  double get height => this.$2;
+
+  /// [box] return a sized box having size itself.
+  Widget get box => SizedBox(width: width, height: height);
+
+  /// [atLeast] return a relative size.
+  (double, double) get atLeast => (width.atLeast, height.atLeast);
+
+  /// [relative] return a relative size.
+  (double, double) get relative => (width.relative, height.relative);
+
+  /// [cover] return a container having size itself.
+  /// It can take declarative arguments, such as child and box decoration.
+  Widget cover({
+    Key? key,
+    Widget? child,
+    BoxDecoration? decoration,
+  }) {
+    return Container(
+      key: key,
+      width: width == 0 ? null : width,
+      height: height == 0 ? null : height,
+      decoration: decoration,
+      child: child,
+    );
+  }
+}
+
 /// Extension for Size type
 extension EasyLayoutSizeExtension on Size {
   /// [box] return a sized box having size itself.
