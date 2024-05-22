@@ -62,11 +62,7 @@ extension EasyLayoutTupleExtension on (double, double) {
 
   /// [cover] return a container having size itself.
   /// It can take declarative arguments, such as child and box decoration.
-  Widget cover({
-    Key? key,
-    Widget? child,
-    BoxDecoration? decoration,
-  }) {
+  Widget cover({Key? key, Widget? child, BoxDecoration? decoration}) {
     return Container(
       key: key,
       width: width == 0 ? null : width,
@@ -90,19 +86,7 @@ extension EasyLayoutSizeExtension on Size {
 
   /// [cover] return a container having size itself.
   /// It can take declarative arguments, such as child and box decoration.
-  Widget cover({
-    Key? key,
-    Widget? child,
-    BoxDecoration? decoration,
-  }) {
-    if (decoration == null) {
-      return SizedBox(
-        key: key,
-        width: width == 0 ? null : width,
-        height: height == 0 ? null : height,
-        child: child,
-      );
-    }
+  Widget cover({Key? key, Widget? child, BoxDecoration? decoration}) {
     return Container(
       key: key,
       width: width == 0 ? null : width,
