@@ -3,6 +3,6 @@
 import 'package:flutter/material.dart';
 
 extension ScreenExtension on BuildContext {
-  double get w => MediaQuery.of(this).size.width;
-  double get h => MediaQuery.of(this).size.height;
+  double get w => MediaQuery.sizeOf(this).width;
+  double get h => MediaQuery.sizeOf(this).height;
 }
