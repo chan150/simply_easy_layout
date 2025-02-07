@@ -17,6 +17,8 @@ class SimplyEasyLayoutFactory {
   /// layout height
   double height = 400;
 
+  SimplyEasyLayoutAxis preferredAxis = SimplyEasyLayoutAxis.min;
+
   /// easyLayout instance
   SimplyEasyLayout? easyLayout;
 }

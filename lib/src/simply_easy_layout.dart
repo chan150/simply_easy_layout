@@ -2,6 +2,8 @@
 
 import 'dart:math';
 
+import 'package:simply_easy_layout/simply_easy_layout.dart';
+
 /// {@template easy_layout}
 /// A Very Good Project created by Very Good CLI.
 /// {@endtemplate}
@@ -12,7 +14,8 @@ class SimplyEasyLayout {
     required this.layoutHeight,
     required this.screenWidth,
     required this.screenHeight,
-  }) : ratio = layoutHeight / layoutWidth;
+    required this.axis,
+  });
 
   final double layoutWidth;
   final double layoutHeight;
@@ -20,11 +23,17 @@ class SimplyEasyLayout {
   final double screenWidth;
   final double screenHeight;
 
-  final double ratio;
+  final SimplyEasyLayoutAxis axis;
 
   double relative(double value) {
-    final double adjustedHeight = min(screenHeight, screenWidth * ratio);
-    return adjustedHeight * value / layoutHeight;
+    switch (axis) {
+      case SimplyEasyLayoutAxis.min:
+        return min(screenHeight, screenWidth * layoutHeight / layoutWidth) * value / layoutHeight;
+      case SimplyEasyLayoutAxis.horizontal:
+        return value * screenWidth / layoutWidth;
+      case SimplyEasyLayoutAxis.vertical:
+        return value * screenHeight / layoutHeight;
+    }
   }
 
   double atLeast(double value) {
